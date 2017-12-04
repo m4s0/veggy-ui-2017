@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import request from "superagent";
+import setting from 'settings';
 
 export default class Ping extends Component {
   constructor(){
@@ -24,7 +25,7 @@ export default class Ping extends Component {
 
   handleClick() {
     request
-      .post('http://localhost:4000/commands')
+      .post(`${settings.host}/commands`)
       .set('Content-Type', 'application/json')
       .send({command: 'Ping'})
       .end()
