@@ -6,6 +6,9 @@ class DescriptionModal extends Component {
     super(props)
     this.handleOkClick = this.handleOkClick.bind(this)
   }
+
+  // con react ho 2 possibilità per leggere il contenuto di un input di un form: onChange oppure come qui onOkClick
+  // in questo caso leggo il contenuto del contentuto di ref="description"
   handleOkClick() {
     const description = this.refs.description.value
     this.props.onStart(description)
