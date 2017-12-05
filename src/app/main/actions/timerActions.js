@@ -7,6 +7,7 @@ const project_timer_id = u => (u.timer_id)
 
 const timerActions = {
   startPomodoro(timer_id, users, description) {
+    // R.pipe(R.filter(selected), R.map(project_timer_id)) è una funzione a cui vengono passati gli users
     const selectedUsers = R.pipe(R.filter(selected), R.map(project_timer_id))(users)
     var cmd = { command: 'StartPomodoro', duration: settings.duration, timer_id: timer_id, description: description }
     if (selectedUsers.length > 0) {
