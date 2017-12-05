@@ -13,6 +13,7 @@ export const StartCanceled = 'StartCanceled'
 export const Init = 'Init'
 export const TimersLoaded = 'TimersLoaded'
 export const UsersLoaded = 'UsersLoaded'
+export const UsersListLoaded = 'UsersListLoaded'
 export const TagsLoaded = 'TagsLoaded'
 export const SelectedUsersChanged = 'SelectedUsersChanged'
 

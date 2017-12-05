@@ -24,6 +24,17 @@ function getPomodoriOfTheDay(timer_id) {
     })
 }
 
+function getLatestsPomodori() {
+  return request
+    .get(`${settings.host}/projections/latest-pomodori`)
+    .then(res => {
+      dispatcher.dispatch({type: Action.UsersLoaded, payload: res.body})
+    })
+    .catch(err => {
+      dispatcher.dispatch({type: Action.ApiError, payload: err})
+    })
+}
+
 function resumeTimer(userInfo) {
   return request
     .get(`${settings.host}/projections/latest-pomodoro?timer_id=${userInfo.timer_id}`)
@@ -55,6 +66,7 @@ const resumeActions = {
       ws.sendCommand(`login:${user.username}`)
       resumeTimer(user).then(() => dispatcher.dispatch({type: Action.Init, payload: user}))
       getPomodoriOfTheDay(user.timer_id)
+      getLatestsPomodori()
     } else {
       dispatcher.dispatch({type: Action.NeedLogin, payload: {}})
     }

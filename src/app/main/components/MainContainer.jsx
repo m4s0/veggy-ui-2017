@@ -3,6 +3,7 @@ import MessageBar from '../../MessageBar'
 import Display from './Display'
 import Controls from './Controls'
 import TaskList from './TaskList'
+import UsersList from './UsersList'
 import timerActions from '../actions/timerActions'
 import resumeActions from '../actions/resumeActions'
 import usersActions from '../actions/usersActions'
@@ -58,6 +59,7 @@ class MainContainer extends React.Component {
             <MessageBar message={this.props.message} type={this.props.message_type} />
           </div>
           <TaskList tasks={this.props.tasks} />
+          <UsersList users={this.props.users} />
         </div>
       </div>
     )
