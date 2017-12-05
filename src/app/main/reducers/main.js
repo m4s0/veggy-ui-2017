@@ -5,5 +5,6 @@ export default buildReducer({
   [Action.StartRequested]: () => ({ need_description: true}),
   [Action.StartCanceled]: () => ({ need_description: false }),
   [Action.PomodoroStarted]: () => ({ need_description: false }),
+  [Action.PomodoroSquashed] : () => ({need_description: false})
 })
 

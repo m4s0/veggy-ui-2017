@@ -10,6 +10,9 @@ function webSocketActions(data) {
   case Action.PomodoroCompleted:
     pomodoroTicker.stop()
     break
+  case Action.PomodoroSquashed:
+    pomodoroTicker.stop()
+    break
   default: break
   }
   return { type: data.event, payload: data }
